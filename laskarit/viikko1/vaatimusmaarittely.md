@@ -15,7 +15,7 @@ Vain yhdenlaisia käyttäjiä.
 - Sovellus pitää kirjaa jäljellä olevien korttien määrästä
 - Sovellus pitää kirjaa pelin aikana tulleista uusista säännöistä
 - Toiminnallisuus lisätä pelaajien nimet ja pitää kirjaa kenen vuoro on
-- Mahdollisuus tehdä eri versioita, joissa kortteihin on liitetty eri säännöt
+- Mahdollisuus tehdä eri versioita, joissa kortteihin on liitetty eri säännöt. Versiolle annetaan nimi ja pelaajat voivat valita mitä versiota haluavat pelata
 
 ## Jatkokehitysideoita
 
