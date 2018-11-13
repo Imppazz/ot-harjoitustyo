@@ -21,6 +21,5 @@ Vain yhdenlaisia käyttäjiä.
 
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla
 
-- Mahdollisuus lisätä pelaajien nimet ja pitää kirjaa kenen vuoro on
-- Pitää kirjaa, kuinka paljon kukin on juonut
+- Mahdollisuus pitää kirjaa, kuinka paljon kukin on juonut
 - Mahdollisuus lisätä erilaisia korttipakkaa käyttäviä juomapelejä
