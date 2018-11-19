@@ -4,4 +4,4 @@
 
 [komentorivi.txt](https://github.com/Imppazz/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
-[vaatimusmaarittely.md](https://github.com/Imppazz/ot-harjoitustyo/blob/master/laskarit/viikko1/vaatimusmaarittely.md)
+[vaatimusmaarittely.md](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
