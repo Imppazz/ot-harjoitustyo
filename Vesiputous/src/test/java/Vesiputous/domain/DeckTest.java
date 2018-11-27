@@ -14,20 +14,20 @@ public class DeckTest {
     }
     @Test
     public void nostaminenVahentaaKortteja() {
-        deck.DrawACard();
-        deck.DrawACard();
-        deck.DrawACard();
+        deck.drawCard();
+        deck.drawCard();
+        deck.drawCard();
         assertEquals(deck.cardsRemaining(), 49);
     }
     @Test
     public void nostaminenPalauttaaNostetunKortin() {
-        assertEquals(deck.DrawACard().toString(), "ACE of HEARTS");
+        assertEquals(deck.drawCard().toString(), "ACE of HEARTS");
     }
     @Test
     public void nostaminenPalauttaaNullKunPakkaLoppuu() {
         for (int i = 1; i <= 52; i++) {
-            deck.DrawACard();
+            deck.drawCard();
         }
-        assertEquals(deck.DrawACard(), null);
+        assertEquals(deck.drawCard(), null);
     }
 }

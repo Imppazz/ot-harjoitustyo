@@ -21,7 +21,7 @@ public class Deck {
         Collections.shuffle(deck, new Random());
     }
 
-    public Card DrawACard() {
+    public Card drawCard() {
         if (!deck.isEmpty()) {
             return deck.remove(0);
         }

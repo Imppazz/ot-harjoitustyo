@@ -43,7 +43,7 @@ public class GUI extends Application {
 
         // 2.2. Liitetään alinäkymät nappeihin. Napin painaminen vaihtaa alinäkymää.
         card.setOnAction((event) -> {
-            Label cardLayout = new Label(deck.DrawACard() + "");
+            Label cardLayout = new Label(deck.drawCard() + "");
             Label remaining = new Label("Cards remaining: " + deck.cardsRemaining());
             layout.setCenter(cardLayout);
             layout.setBottom(remaining);
@@ -51,7 +51,7 @@ public class GUI extends Application {
         task.setOnAction((event) -> layout.setCenter(taskLayout));
 
         // 2.3. Näytetään aluksi cardLayout
-        layout.setCenter(new Label(deck.DrawACard() + ""));
+        layout.setCenter(new Label(deck.drawCard() + ""));
         layout.setBottom(new Label("Cards remaining: " + deck.cardsRemaining()));
         
         // 3. Luodaan päänäkymä ja asetetaan päätason layout siihen
