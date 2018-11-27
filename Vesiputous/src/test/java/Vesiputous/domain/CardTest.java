@@ -1,7 +1,4 @@
 package Vesiputous.domain;
-import Vesiputous.domain.Rank;
-import Vesiputous.domain.Card;
-import Vesiputous.domain.Suit;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;

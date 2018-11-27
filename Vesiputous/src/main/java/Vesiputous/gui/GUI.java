@@ -11,9 +11,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import Vesiputous.domain.Deck;
-import java.util.Scanner;
 
-public class GUI extends Application{
+public class GUI extends Application {
 
     @Override
     public void start(Stage window) throws Exception {
@@ -35,26 +34,28 @@ public class GUI extends Application{
 
         layout.setTop(option);
 
-
         // 2. Luodaan alinäkymät ja kytketään ne valikon nappeihin
         // 2.1. Luodaan alinäkymät -- tässä layout
+        // Luodaan pakka ja sekoitetaan se
         Deck deck = new Deck();
+        deck.suffle();
         Label taskLayout = new Label("*Task here*");
 
         // 2.2. Liitetään alinäkymät nappeihin. Napin painaminen vaihtaa alinäkymää.
         card.setOnAction((event) -> {
-            Label cardLayout = new Label(deck.DrawACard()+ ", Cards remaining " + deck.cardsRemaining());
+            Label cardLayout = new Label(deck.DrawACard() + "");
+            Label remaining = new Label("Cards remaining: " + deck.cardsRemaining());
             layout.setCenter(cardLayout);
+            layout.setBottom(remaining);
         });
         task.setOnAction((event) -> layout.setCenter(taskLayout));
 
         // 2.3. Näytetään aluksi cardLayout
-        layout.setCenter(new Label(deck.DrawACard()+ ", Cards remaining " + deck.cardsRemaining()));
-
-
+        layout.setCenter(new Label(deck.DrawACard() + ""));
+        layout.setBottom(new Label("Cards remaining: " + deck.cardsRemaining()));
+        
         // 3. Luodaan päänäkymä ja asetetaan päätason layout siihen
         Scene view = new Scene(layout);
-
 
         // 4. Näytetään sovellus
         window.setScene(view);
@@ -70,7 +71,4 @@ public class GUI extends Application{
 //
 //        return layout;
 //    }
-    public static void main(String[] args) {
-        launch(GUI.class);
-    }    
 }

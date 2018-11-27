@@ -1,6 +1,5 @@
 package Vesiputous.domain;
 
-import Vesiputous.domain.Deck;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
