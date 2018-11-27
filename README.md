@@ -1,7 +1,27 @@
-**Viikko1**
+# Vesiputous
 
-[gitlog.txt](https://github.com/Imppazz/ot-harjoitustyo/blob/master/laskarit/viikko1/gitlog.txt)
+Sovelluksen avulla voidaan pelata suosittua juomapeliä nimeltä 'Vesiputous' (tunnetaan myös monilla muilla nimillä). Peliä pelataan normaalisti korttipakalla, mutta tämä sovellus korvaa sen. Lisäksi sovellus auttaa sääntöjen muistamisessa, peliin on nimittäin lukemattomia eri sääntöjä ja ne menevät aina sekaisin.
 
-[komentorivi.txt](https://github.com/Imppazz/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
+## Dokumentaatio
 
-[vaatimusmaarittely.md](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentointi/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+
+[Työaikakirjanpito](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+
+## Komentorivitoiminnot
+
+### Testaus
+
+Testit suoritetaan komennolla
+
+```
+mvn test
+```
+
+Testikattavuusraportti luodaan komennolla
+
+```
+mvn jacoco:report
+```
+
+Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
