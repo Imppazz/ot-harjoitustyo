@@ -8,6 +8,8 @@ Sovelluksen avulla voidaan pelata suosittua juomapeliä nimeltä 'Vesiputous' (t
 
 [Työaikakirjanpito](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
 
+[Arkkitehtuurikuvaus](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+
 ## Komentorivitoiminnot
 
 ### Testaus
