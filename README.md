@@ -10,6 +10,8 @@ Sovelluksen avulla voidaan pelata suosittua juomapeliä nimeltä 'Vesiputous' (t
 
 [Arkkitehtuurikuvaus](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Release](https://github.com/Imppazz/ot-harjoitustyo/releases/tag/Viikko5)
+
 ## Komentorivitoiminnot
 
 ### Testaus
