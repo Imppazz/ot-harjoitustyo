@@ -1,4 +1,7 @@
 package Vesiputous.domain;
+import vesiputous.domain.Rank;
+import vesiputous.domain.Card;
+import vesiputous.domain.Suit;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -17,15 +20,27 @@ public class CardTest {
         card3 = new Card(Suit.DIAMONDS, Rank.FOUR);
     }
     @Test
-    public void maaJaArvoOikein() {
+    public void suitAndRankCorrect() {
         assertEquals("ACE of SPADES", card.toString());
     }
     @Test
-    public void maaJaArvoOikein2() {
+    public void suitAndRankCorrect2() {
         assertEquals("KING of HEARTS", card2.toString());
     }
     @Test
-    public void maaJaArvoOikein3() {
+    public void suitAndRankCorrect3() {
         assertEquals("FOUR of DIAMONDS", card3.toString());
+    }
+    @Test
+    public void fileNameCorrect() {
+        assertEquals("ACESPADES.png", card.fileName());
+    }
+    @Test
+    public void fileNameCorrect2() {
+        assertEquals("KINGHEARTS.png", card2.fileName());
+    }
+    @Test
+    public void fileNameCorrect3() {
+        assertEquals("FOURDIAMONDS.png", card3.fileName());
     }
 }

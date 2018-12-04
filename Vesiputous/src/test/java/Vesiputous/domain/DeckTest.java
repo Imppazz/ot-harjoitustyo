@@ -1,5 +1,6 @@
 package Vesiputous.domain;
 
+import vesiputous.domain.Deck;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -13,21 +14,21 @@ public class DeckTest {
         deck = new Deck();
     }
     @Test
-    public void nostaminenVahentaaKortteja() {
+    public void drawCardReducesCards() {
         deck.drawCard();
         deck.drawCard();
         deck.drawCard();
         assertEquals(deck.cardsRemaining(), 49);
     }
     @Test
-    public void nostaminenPalauttaaNostetunKortin() {
+    public void drawCardReturnsCorrectCard() {
         assertEquals(deck.drawCard().toString(), "ACE of HEARTS");
     }
     @Test
-    public void nostaminenPalauttaaNullKunPakkaLoppuu() {
+    public void drawCardReturnNullCardWhenOutOfCards() {
         for (int i = 1; i <= 52; i++) {
             deck.drawCard();
         }
-        assertEquals(deck.drawCard(), null);
+        assertEquals(deck.drawCard().toString(), "null of null");
     }
 }

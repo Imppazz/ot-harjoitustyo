@@ -5,6 +5,6 @@
     "http://www.puppycrawl.com/dtds/suppressions_1_1.dtd">
 
 <suppressions>
-    <suppress files="Vesiputous.gui.GUI.java" checks="[a-zA-Z0-9]*"/>
-    <suppress files="Vesiputous.gui.Main.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="vesiputous.gui.GUI.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="vesiputous.gui.Main.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
