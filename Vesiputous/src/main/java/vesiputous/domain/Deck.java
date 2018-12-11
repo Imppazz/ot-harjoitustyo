@@ -13,8 +13,8 @@ public class Deck {
     public Deck() {
         deck = new ArrayList<>();
         rules = new HashMap<>();
-        for (Suit s : Suit.values()) {
-            for (Rank r : Rank.values()) {
+        for (Rank r : Rank.values()) {
+            for (Suit s : Suit.values()) {
                 Card card = new Card(s, r);
                 deck.add(card);
                 rules.put(card, card.toString() + ": *Rule here*");

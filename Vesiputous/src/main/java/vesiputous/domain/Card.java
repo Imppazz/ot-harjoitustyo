@@ -9,6 +9,14 @@ public class Card {
         this.suit = suit;
         this.rank = rank;
     }
+    public Card(String card) {
+        String[] parts = card.split(";");
+        this.rank = Rank.valueOf(parts[0]);
+        this.suit = Suit.valueOf(parts[1]);
+    }
+    public String cardAsString() {
+        return this.rank + ";" + this.suit;
+    }
 
     public Suit getSuit() {
         return this.suit;
