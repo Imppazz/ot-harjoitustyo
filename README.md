@@ -10,6 +10,8 @@ Sovelluksen avulla voidaan pelata suosittua juomapeliä nimeltä 'Vesiputous' (t
 
 [Arkkitehtuurikuvaus](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
 
+[Release](https://github.com/Imppazz/ot-harjoitustyo/releases/tag/Viikko5)
+
 ## Komentorivitoiminnot
 
 ### Testaus
@@ -27,3 +29,23 @@ mvn jacoco:report
 ```
 
 Kattavuusraporttia voi tarkastella avaamalla selaimella tiedosto _target/site/jacoco/index.html_
+
+### Suoritettavan jarin generointi
+
+Komento
+
+```
+mvn package
+```
+
+generoi hakemistoon _target_ suoritettavan jar-tiedoston _Vesiputous-1.0-SNAPSHOT.jar_
+
+### Checkstyle
+
+Tiedostoon [checkstyle.xml](https://github.com/mluukkai/OtmTodoApp/blob/master/checkstyle.xml) määrittelemät tarkistukset suoritetaan komennolla
+
+```
+ mvn jxr:jxr checkstyle:checkstyle
+```
+
+Mahdolliset virheilmoitukset selviävät avaamalla selaimella tiedosto _target/site/checkstyle.html_
