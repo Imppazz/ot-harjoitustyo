@@ -13,4 +13,6 @@
 | 04.12. | 4    | Tekstin vaihto kuvaan GUI:ssa |
 | 04.12. | 2    | Alustavaa sääntöjen tekoa |
 | 04.12. | 3    | Checkstyle, jar, github release yms. |
-| yht   | 30   | | 
+| 10.12. | 5    | GUI:n parantelua ja dao-luokkien aloitus |
+| 11.12. | 7    | GUI:n parantelua ja dao-luokkien jatkamista |
+| yht   | 42   | | 
