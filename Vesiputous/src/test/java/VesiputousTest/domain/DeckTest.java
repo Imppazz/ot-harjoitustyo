@@ -1,4 +1,4 @@
-package Vesiputous.domain;
+package VesiputousTest.domain;
 
 import vesiputous.domain.Deck;
 import org.junit.Before;

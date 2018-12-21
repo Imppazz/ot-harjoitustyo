@@ -7,15 +7,28 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Ilmari
+ */
 public class Database {
 
     private String databaseAddress;
 
+    /**
+     *
+     * @param databaseAddress
+     */
     public Database(String databaseAddress) {
         this.databaseAddress = databaseAddress;
         this.init();
     }
 
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public Connection getConnection() throws SQLException {
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
         if (dbUrl != null && dbUrl.length() > 0) {
@@ -25,6 +38,9 @@ public class Database {
         return DriverManager.getConnection(databaseAddress);
     }
 
+    /**
+     *
+     */
     public void init() {
         List<String> commands = this.sqliteCommands();
 
@@ -45,19 +61,13 @@ public class Database {
 
     private List<String> sqliteCommands() {
         ArrayList<String> list = new ArrayList<>();
-
-        list.add("CREATE TABLE IF NOT EXISTS RuleSets ("
-                + "id integer PRIMARY KEY, "
-                + "name varchar(50), "
-                + "CONSTRAINT constraint_name UNIQUE (name));");
+        list.add("CREATE TABLE IF NOT EXISTS RuleSet (name varchar(50) PRIMARY KEY);");
         
-        list.add("CREATE TABLE IF NOT EXISTS Rules ("
-                + "id integer PRIMARY KEY, "
+        list.add("CREATE TABLE IF NOT EXISTS Rule ("
                 + "card varchar(20), "
-                + "rule varchar(255), "
-                + "CONSTRAINT constraint_card UNIQUE (card), "
-                + "game_id integer, "
-                + "FOREIGN KEY (game_id) REFERENCES Game(id));");
+                + "rule varchar(500), "
+                + "ruleset varchar(50), "
+                + "PRIMARY KEY (card, ruleset));");
                 
         return list;
     }
