@@ -13,7 +13,6 @@ Vain yhdenlaisia käyttäjiä.
 - Sovellus antaa yksitellen (yksi kortti/hiiren klikkaus) virtuaalisen korttipakan kaikki kortit satunnaisessa järjestyksessä
 - Jokaiseen korttiin on liitetty jokin tehtävä, jonka nimi ja kuvaus tulevat näkyville kortin mukana
 - Sovellus pitää kirjaa jäljellä olevien korttien määrästä
-- Sovellus pitää kirjaa pelin aikana tulleista uusista säännöistä
 - Toiminnallisuus lisätä pelaajien nimet ja pitää kirjaa kenen vuoro on
 - Mahdollisuus tehdä eri versioita, joissa kortteihin on liitetty eri säännöt. Versiolle annetaan nimi ja pelaajat voivat valita mitä versiota haluavat pelata
 
@@ -22,4 +21,4 @@ Vain yhdenlaisia käyttäjiä.
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla
 
 - Mahdollisuus pitää kirjaa, kuinka paljon kukin on juonut
-- Mahdollisuus lisätä erilaisia korttipakkaa käyttäviä juomapelejä
+- Mahdollisuus lisätä erilaisia korttipakkaa käyttäviä pelejä
