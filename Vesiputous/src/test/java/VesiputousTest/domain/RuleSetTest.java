@@ -9,13 +9,14 @@ import static org.junit.Assert.*;
 import vesiputous.domain.RuleSet;
 
 public class RuleSetTest {
-    
+
     RuleSet ruleSet;
-    
+
     @Before
     public void setUp() {
         this.ruleSet = new RuleSet("test");
     }
+
     @Test
     public void toStringCorrect() {
         assertEquals("test", ruleSet.toString());

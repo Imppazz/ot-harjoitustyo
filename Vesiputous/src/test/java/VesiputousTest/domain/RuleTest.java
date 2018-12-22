@@ -6,30 +6,37 @@ import static org.junit.Assert.*;
 import vesiputous.domain.Card;
 import vesiputous.domain.Rank;
 import vesiputous.domain.Rule;
+import vesiputous.domain.RuleSet;
 import vesiputous.domain.Suit;
 
-public class RuleTest { 
-    
+public class RuleTest {
+
     Card card;
     Rule rule;
-    
+    RuleSet ruleSet;
+
     @Before
     public void setUp() {
         card = new Card(Suit.SPADES, Rank.ACE);
-        rule = new Rule(card, "Lemmy", "test");
+        ruleSet = new RuleSet("test");
+        rule = new Rule(card, "Lemmy", ruleSet);
     }
+
     @Test
     public void getCardCorrect() {
         assertEquals("ACE of SPADES", rule.getCard().toString());
     }
+
     @Test
     public void getRuleCorrect() {
         assertEquals("Lemmy", rule.getRule());
     }
+
     @Test
     public void getRuleSetNameCorrect() {
-        assertEquals("test", rule.getRuleSetName());
+        assertEquals("test", rule.getRuleSet().toString());
     }
+
     @Test
     public void toStringCorrect() {
         assertEquals("ACE of SPADES: Lemmy", rule.toString());
