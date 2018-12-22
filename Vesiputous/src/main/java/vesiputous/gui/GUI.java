@@ -28,25 +28,30 @@ import vesiputous.domain.Rule;
 import vesiputous.domain.RuleSet;
 import vesiputous.domain.Suit;
 
+/**
+ *
+ * @author Ilmari
+ */
 public class GUI extends Application implements DaoResources {
 
     private Card localCard;
     private Rule localRule;
     ArrayList<String> cardList = new ArrayList<>();
     ArrayList<Rule> ruleList = new ArrayList<>();
-    int labelIndex = 10;
+    Label ruleListLab;
+    int labelIndex = 11;
     String RSname;
+    Deck deck;
 
     @Override
     public void start(Stage window) throws Exception {
-
-        // 1. Luodaan layoutit
+        // Luodaan layoutit
         BorderPane gameLayout = new BorderPane();
         BorderPane startLayout = new BorderPane();
         BorderPane ruleLayout = new BorderPane();
         GridPane addRuleLayout = new GridPane();
 
-        // 1.1 Luodaan Hboxit ja tyylitellään layoutit
+        // Luodaan Hboxit ja tyylitellään layoutit
         HBox option = new HBox();
         option.setPadding(new Insets(20, 20, 20, 20));
         option.setSpacing(40);
@@ -60,12 +65,13 @@ public class GUI extends Application implements DaoResources {
         addRuleLayout.setVgap(10);
         addRuleLayout.setHgap(10);
         addRuleLayout.setPadding(new Insets(20, 20, 20, 20));
-        
+
         ruleLayout.setMinSize(50, 50);
 
-        // 1.2. Luodaan valikoiden napit, tekstit yms.
+        // Luodaan valikoiden napit, tekstit yms.
         Button startButton = new Button("Start game");
         Button newRuleSet = new Button("New ruleset");
+        Button deleteRS = new Button("Delete chosen ruleset");
         Label ruleLab = new Label("Rule:");
         Label cardLab = new Label("Card:");
         Label nameLab = new Label("Name of the ruleset:");
@@ -76,10 +82,12 @@ public class GUI extends Application implements DaoResources {
         Label addRuleLab2 = new Label("Add a rule for every card");
         Label noRuleSet = new Label("Select ruleset");
         Label RSnameTaken = new Label("Given name is taken");
+        Label RSnotValid = new Label("Name has to be 1-50 letters");
         fillAll.setTextFill(Color.RED);
         hasRule.setTextFill(Color.RED);
         noRuleSet.setTextFill(Color.RED);
         RSnameTaken.setTextFill(Color.RED);
+        RSnotValid.setTextFill(Color.RED);
         addRuleLab2.setTextFill(Color.RED);
         TextField tfRule = new TextField();
         TextField tfName = new TextField();
@@ -89,8 +97,10 @@ public class GUI extends Application implements DaoResources {
         Button addRule = new Button("Add rule");
         Button addRule2 = new Button("Add new rule");
         Button saveRuleSet = new Button("Save ruleset");
+        Button cancel = new Button("Cancel");
         Button drawCard = new Button("Draw a card");
         Button showRule = new Button("Show rule");
+        Button newGame = new Button("New game");
         Button next = new Button("Next");
         ScrollPane rulesSP = new ScrollPane();
 
@@ -103,10 +113,10 @@ public class GUI extends Application implements DaoResources {
         cbSuit.setValue("Select suit");
         cbRank.setValue("Select rank");
         cbRuleSet.getItems().addAll(RULESETDAO.findAll());
-        
-        //Lisätään napit valikkoon
+
+        //Lisätään napit yms. layoutteihin
         option.getChildren().addAll(drawCard, showRule);
-        optionStart.getChildren().addAll(startButton, cbRuleSet, newRuleSet);
+        optionStart.getChildren().addAll(startButton, cbRuleSet, deleteRS, newRuleSet);
 
         gameLayout.setTop(option);
         startLayout.setCenter(optionStart);
@@ -114,22 +124,36 @@ public class GUI extends Application implements DaoResources {
         addRuleLayout.add(nameLab, 0, 0);
         addRuleLayout.add(tfName, 0, 1);
         addRuleLayout.add(next, 1, 1);
+        addRuleLayout.add(addRuleLab, 0, 3);
+        addRuleLayout.add(cardLab, 0, 4);
+        addRuleLayout.add(cbRank, 0, 5);
+        addRuleLayout.add(cbSuit, 1, 5);
+        addRuleLayout.add(ruleLab, 0, 6);
+        addRuleLayout.add(tfRule, 0, 7);
+        addRuleLayout.add(addRule, 0, 8);
+        addRuleLayout.add(saveRuleSet, 1, 8);
+        addRuleLayout.add(cancel, 2, 8);
+        addRuleLayout.add(addedRules, 0, 10);
+        cbRank.setDisable(true);
+        cbSuit.setDisable(true);
+        tfRule.setDisable(true);
+        addRule.setDisable(true);
+        saveRuleSet.setDisable(true);
         rulesSP.setContent(addRuleLayout);
         rulesSP.setPannable(true);
-
-        // Luodaan pakka ja sekoitetaan se
-        Deck deck = new Deck();
-        deck.suffle();
-
-        // 2.2. Liitetään layoutit alinäkymiin. 
+        
+        // Luodaan näkymät ja toinen ikkuna säännön näyttämistä varten. 
         Scene gameView = new Scene(gameLayout);
         Scene startView = new Scene(startLayout);
         Scene addRuleView = new Scene(rulesSP);
         Scene ruleView = new Scene(ruleLayout);
         Stage window2 = new Stage();
-        
+
         //Määritellään nappien toiminnot
         startButton.setOnAction((event) -> {
+            startLayout.setTop(null);
+            deck = new Deck();
+            deck.suffle();
             if (cbRuleSet.getValue().equals("Select ruleset")) {
                 startLayout.setTop(noRuleSet);
             } else {
@@ -148,18 +172,20 @@ public class GUI extends Application implements DaoResources {
             addRuleLayout.getChildren().remove(hasRule);
             addRuleLayout.getChildren().remove(addRuleLab2);
             if (cbRank.getValue().equals("Select rank") || cbSuit.getValue().equals("Select suit") || tfRule.getText().isEmpty()) {
-                addRuleLayout.add(fillAll, 0, 8);
+                addRuleLayout.add(fillAll, 0, 9);
             } else {
+                RuleSet ruleSet = new RuleSet(RSname);
                 addRuleLayout.getChildren().remove(fillAll);
                 Card card = new Card(cbRank.getValue() + ";" + cbSuit.getValue());
-                Rule rule = new Rule(card, tfRule.getText(), RSname);
+                Rule rule = new Rule(card, tfRule.getText(), ruleSet);
                 if (cardList.contains(card.toString())) {
-                    addRuleLayout.add(hasRule, 0, 8);
+                    addRuleLayout.add(hasRule, 0, 9);
                 } else {
                     cardList.add(card.toString());
-                    Label ruleLab2 = new Label(rule.toString());
                     ruleList.add(rule);
-                    addRuleLayout.add(ruleLab2, 0, labelIndex);
+                    Label ruleLab2 = new Label(rule.toString()); 
+                    addRuleLayout.add(ruleLab2, 0, labelIndex, 10, 1);
+                    
                     labelIndex++;
                 }
             }
@@ -170,7 +196,7 @@ public class GUI extends Application implements DaoResources {
         });
         saveRuleSet.setOnAction((event) -> {
             if (cardList.size() < 52) {
-                addRuleLayout.add(addRuleLab2, 0, 8);
+                addRuleLayout.add(addRuleLab2, 0, 9);
             } else {
                 try {
                     RULESETDAO.add(new RuleSet(RSname));
@@ -180,16 +206,63 @@ public class GUI extends Application implements DaoResources {
                 } catch (SQLException ex) {
                     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                addRuleLayout.getChildren().remove(13, labelIndex+2);
+                tfName.setText("");
+                tfName.setDisable(false);
+                next.setDisable(false);
+                cbRank.setDisable(true);
+                cbSuit.setDisable(true);
+                tfRule.setDisable(true);
+                addRule.setDisable(true);
+                saveRuleSet.setDisable(true);
                 cbRuleSet.getItems().add(RSname);
-                labelIndex = 10;
+                labelIndex = 11;
                 cardList.clear();
                 ruleList.clear();
                 window.setScene(startView);
                 window.show();
             }
         });
-        drawCard.setOnAction(
-                (event) -> setCardLayout(gameLayout, deck));
+        cancel.setOnAction((event) -> {
+            addRuleLayout.getChildren().remove(13, labelIndex+2);
+            tfName.setText("");
+            tfName.setDisable(false);
+            next.setDisable(false);
+            cbRank.setDisable(true);
+            cbSuit.setDisable(true);
+            tfRule.setDisable(true);
+            addRule.setDisable(true);
+            saveRuleSet.setDisable(true);
+            labelIndex = 11;
+            cardList.clear();
+            ruleList.clear();
+            window.setScene(startView);
+            window.show();
+        });
+        deleteRS.setOnAction((event) -> {
+            if (cbRuleSet.getValue().equals("Select ruleset")) {
+                startLayout.setTop(noRuleSet);
+            } else {
+                startLayout.setTop(null);
+                RSname = cbRuleSet.getValue().toString();
+                try {
+                    RULEDAO.delete(RSname);
+                    RULESETDAO.delete(RSname);
+                } catch (SQLException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                RSname = cbRuleSet.getValue().toString();
+                cbRuleSet.setValue(cbRuleSet.getItems().get(0));
+                int index = cbRuleSet.getItems().indexOf(RSname);
+                cbRuleSet.getItems().remove(index);
+            }
+        });
+        drawCard.setOnAction((event) -> {
+            setCardLayout(gameLayout, deck);
+            if (deck.cardsRemaining() == 0) {
+                gameLayout.setTop(newGame);
+            }
+        });    
         showRule.setOnAction(
                 (event) -> {
                     try {
@@ -203,31 +276,41 @@ public class GUI extends Application implements DaoResources {
                     window2.show();
                 }
         );
+        newGame.setOnAction((event) -> {
+            gameLayout.setTop(option);
+            window.setScene(startView);
+            window.show();
+        });
         next.setOnAction(
                 (event) -> {
-                    if (cbRuleSet.getItems().toString().contains(tfName.getText())) {
+                    addRuleLayout.getChildren().remove(RSnotValid);
+                    addRuleLayout.getChildren().remove(RSnameTaken);
+                    String name = tfName.getText();
+                    int n = cbRuleSet.getItems().size();
+                    boolean equals = false;
+                    for (int i = 0; i < n; i++) {
+                        if (cbRuleSet.getItems().get(i).toString().equals(name)) equals = true;
+                    }
+                    if (name.length() == 0 || name.length() > 50) {
+                        addRuleLayout.add(RSnotValid, 0, 2);
+                    } else if (equals) {
                         addRuleLayout.add(RSnameTaken, 0, 2);
                     } else {
                         addRuleLayout.getChildren().remove(RSnameTaken);
                         RSname = tfName.getText();
                         Label RSlabel = new Label(tfName.getText());
-                        addRuleLayout.getChildren().remove(tfName);
-                        addRuleLayout.add(RSlabel, 0, 1);
-                        addRuleLayout.add(addRuleLab, 0, 2);
-                        addRuleLayout.add(cardLab, 0, 3);
-                        addRuleLayout.add(cbRank, 0, 4);
-                        addRuleLayout.add(cbSuit, 1, 4);
-                        addRuleLayout.add(ruleLab, 0, 5);
-                        addRuleLayout.add(tfRule, 0, 6);
-                        addRuleLayout.add(addRule, 0, 7);
-                        addRuleLayout.add(saveRuleSet, 1, 7);
-                        addRuleLayout.add(addedRules, 0, 9);
+                        tfName.setDisable(true);
                         next.setDisable(true);
+                        cbRank.setDisable(false);
+                        cbSuit.setDisable(false);
+                        tfRule.setDisable(false);
+                        addRule.setDisable(false);
+                        saveRuleSet.setDisable(false);
                     }
                 }
         );
 
-        // 4. Näytetään sovellus
+        //Näytetään sovellus
         window.setScene(startView);
 
         window.show();
