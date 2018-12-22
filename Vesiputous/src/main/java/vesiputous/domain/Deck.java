@@ -13,9 +13,6 @@ public class Deck {
 
     private static ArrayList<Card> deck;
 
-    /**
-     *
-     */
     public Deck() {
         deck = new ArrayList<>();
         for (Rank r : Rank.values()) {
@@ -26,17 +23,10 @@ public class Deck {
         }
     }
 
-    /**
-     *
-     */
     public void suffle() {
         Collections.shuffle(deck, new Random());
     }
 
-    /**
-     *
-     * @return
-     */
     public Card drawCard() {
         if (!deck.isEmpty()) {
             return deck.remove(0);
@@ -44,10 +34,6 @@ public class Deck {
         return new Card(null, null);
     }
 
-    /**
-     *
-     * @return
-     */
     public int cardsRemaining() {
         return deck.size();
     }

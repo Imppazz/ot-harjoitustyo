@@ -29,26 +29,14 @@ public class Card {
         this.suit = Suit.valueOf(parts[1]);
     }
 
-    /**
-     *
-     * @return
-     */
     public String cardAsString() {
         return this.rank + ";" + this.suit;
     }
 
-    /**
-     *
-     * @return
-     */
     public Suit getSuit() {
         return this.suit;
     }
 
-    /**
-     *
-     * @return
-     */
     public Rank getRank() {
         return this.rank;
     }
@@ -57,11 +45,7 @@ public class Card {
     public String toString() {
         return this.getRank() + " of " + this.getSuit();
     }
-
-    /**
-     *
-     * @return
-     */
+    
     public String fileName() {
         return this.getRank() + "" + this.getSuit() + ".png";
     }
