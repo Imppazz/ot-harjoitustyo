@@ -36,10 +36,10 @@ Kun kaikille korteille on annettu sääntö nappi _Save ruleset_ tallentaa sää
 
 Kun käyttäjä on valinnut sääntösetin nappi _Start game_ avaa pelinäkymän.
 
-<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/pelinalku.PNG" width="400">
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/pelinalku.PNG" width="200">
 
 Nappi _Draw card_ nostaa virtuaalisesta korttipakasta uuden kortin. Nappi _Show rule_ näyttää valitusta sääntösetistä kortille annetun säännön. 
 
-<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/saanto.PNG" width="400">
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/saanto.PNG" width="200">
 
 Näkymän alareunassa näkyy jatkuvasti jäljellä olevien korttien määrä.
