@@ -21,8 +21,7 @@ public interface Dao<T, K> {
 
     /**
      *
-     * @return
-     * @throws SQLException
+     * @return @throws SQLException
      */
     List<T> findAll() throws SQLException;
 
@@ -32,14 +31,14 @@ public interface Dao<T, K> {
      * @throws SQLException
      */
     void delete(K key) throws SQLException;
-    
+
     /**
      *
      * @param o
      * @throws SQLException
      */
     void add(T o) throws SQLException;
-    
+
     /**
      *
      * @param o

@@ -8,15 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 import vesiputous.domain.Card;
 import vesiputous.domain.Rule;
+import vesiputous.domain.RuleSet;
 
+/**
+ *
+ * @author Ilmari
+ */
 public class RuleDao implements Dao<Rule, String> {
 
     private Database database;
 
+    /**
+     *
+     * @param db
+     */
     public RuleDao(Database db) {
         this.database = db;
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Rule findOne(String key) throws SQLException {
         String[] split = key.split(" ");
@@ -29,9 +44,13 @@ public class RuleDao implements Dao<Rule, String> {
         String rule = rs.getString("rule");
         String ruleSet = rs.getString("ruleset");
 
-        return new Rule(new Card(card), rule, ruleSet);
+        return new Rule(new Card(card), rule, new RuleSet(ruleSet));
     }
 
+    /**
+     *
+     * @return @throws SQLException
+     */
     @Override
     public List<Rule> findAll() throws SQLException {
         Connection connection = database.getConnection();
@@ -45,7 +64,7 @@ public class RuleDao implements Dao<Rule, String> {
             String rule = rs.getString("rule");
             String ruleSet = rs.getString("ruleset");
 
-            rules.add(new Rule(new Card(card), rule, ruleSet));
+            rules.add(new Rule(new Card(card), rule, new RuleSet(ruleSet)));
         }
 
         rs.close();
@@ -54,6 +73,12 @@ public class RuleDao implements Dao<Rule, String> {
 
         return rules;
     }
+
+    /**
+     *
+     * @param key
+     * @throws SQLException
+     */
     @Override
     public void delete(String key) throws SQLException {
         Connection conn = database.getConnection();
@@ -66,6 +91,11 @@ public class RuleDao implements Dao<Rule, String> {
         conn.close();
     }
 
+    /**
+     *
+     * @param o
+     * @throws SQLException
+     */
     @Override
     public void add(Rule o) throws SQLException {
         if (!this.findAll().contains(o)) {
@@ -74,7 +104,7 @@ public class RuleDao implements Dao<Rule, String> {
                     + "VALUES (?, ?, ?);");
             stmt.setString(1, o.getCard().cardAsString());
             stmt.setString(2, o.getRule());
-            stmt.setString(3, o.getRuleSetName());
+            stmt.setString(3, o.getRuleSet().toString());
 
             stmt.executeUpdate();
             stmt.close();
@@ -86,6 +116,11 @@ public class RuleDao implements Dao<Rule, String> {
         }
     }
 
+    /**
+     *
+     * @param o
+     * @throws SQLException
+     */
     @Override
     public void update(Rule o) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

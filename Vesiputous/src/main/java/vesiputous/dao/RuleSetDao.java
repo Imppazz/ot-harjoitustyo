@@ -8,19 +8,37 @@ import java.util.ArrayList;
 import java.util.List;
 import vesiputous.domain.RuleSet;
 
+/**
+ *
+ * @author Ilmari
+ */
 public class RuleSetDao implements Dao<RuleSet, String> {
 
     private Database database;
 
+    /**
+     *
+     * @param db
+     */
     public RuleSetDao(Database db) {
         this.database = db;
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     * @throws SQLException
+     */
     @Override
     public RuleSet findOne(String key) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    /**
+     *
+     * @return @throws SQLException
+     */
     @Override
     public List<RuleSet> findAll() throws SQLException {
         Connection connection = database.getConnection();
@@ -42,6 +60,11 @@ public class RuleSetDao implements Dao<RuleSet, String> {
         return ruleSets;
     }
 
+    /**
+     *
+     * @param key
+     * @throws SQLException
+     */
     @Override
     public void delete(String key) throws SQLException {
         Connection conn = database.getConnection();
@@ -54,6 +77,11 @@ public class RuleSetDao implements Dao<RuleSet, String> {
         conn.close();
     }
 
+    /**
+     *
+     * @param o
+     * @throws SQLException
+     */
     @Override
     public void add(RuleSet o) throws SQLException {
         if (!this.findAll().contains(o)) {
@@ -72,6 +100,11 @@ public class RuleSetDao implements Dao<RuleSet, String> {
         }
     }
 
+    /**
+     *
+     * @param o
+     * @throws SQLException
+     */
     @Override
     public void update(RuleSet o) throws SQLException {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

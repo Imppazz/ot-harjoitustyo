@@ -26,8 +26,7 @@ public class Database {
 
     /**
      *
-     * @return
-     * @throws SQLException
+     * @return @throws SQLException
      */
     public Connection getConnection() throws SQLException {
         String dbUrl = System.getenv("JDBC_DATABASE_URL");
@@ -62,13 +61,13 @@ public class Database {
     private List<String> sqliteCommands() {
         ArrayList<String> list = new ArrayList<>();
         list.add("CREATE TABLE IF NOT EXISTS RuleSet (name varchar(50) PRIMARY KEY);");
-        
+
         list.add("CREATE TABLE IF NOT EXISTS Rule ("
                 + "card varchar(20), "
                 + "rule varchar(500), "
                 + "ruleset varchar(50), "
                 + "PRIMARY KEY (card, ruleset));");
-                
+
         return list;
     }
 }
