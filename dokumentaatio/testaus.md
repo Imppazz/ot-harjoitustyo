@@ -20,7 +20,7 @@ Järjestelmätestaus on suoritettu manuaalisesti.
 
 ### Toiminnallisuudet
 
-Kaikki [määrittelydokumentin](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) ja [käyttöohjeen](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) on testattu, joko automaattisilla testeillä tai manuaalisesti.
+Kaikki [määrittelydokumentissa](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md) ja [käyttöohjeessa](https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md) mainitut toiminnot on testattu, joko automaattisilla testeillä tai manuaalisesti.
 
 ## Sovellukseen jääneet laatuongelmat
 
