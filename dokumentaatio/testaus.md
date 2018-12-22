@@ -12,7 +12,7 @@ DAO-luokkien testaus on suoritettu manuaalisesti.
 
 Käyttöliittymäkerrosta lukuunottamatta sovelluksen testauksen rivikattavuus on vain 45% ja haarautumakattavuus vain 30%, koska en ehtinyt tehdä testejä dao-luokille.
 
-<image src=https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/jacoco.PNG" width="800">
+<image src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/jacoco.PNG" width="800">
 
 ## Järjestelmätestaus
 
