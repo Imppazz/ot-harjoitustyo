@@ -1,48 +1,45 @@
 # Käyttöohje
 
-Lataa tiedosto [todoapp.jar](https://github.com/mluukkai/OtmTodoApp/releases/tag/0.1)
+Lataa tiedosto [Vesiputous.jar](https://github.com/Imppazz/ot-harjoitustyo/releases/tag/Viikko5)
 
 ## Konfigurointi
 
-Ohjelma olettaa, että sen käynnistyshakemistossa on konfiguraatiotiedosto _config.properties_, joka määrittelee käyttäjät ja todot tallettavien tiedostojen nimet. Tiedoston muoto on seuraava
-
-```
-userFile=users.txt
-todoFile=todos.txt
-```
+Ohjelma olettaa, että sen käynnistyshakemistossa on on tietokanta VesiputousDatabase.db. Jos tietokantaa ole käynnistyshakemistossa, ohjelma luo uuden ja toimii normaalisti, mutta silloin ohjelmasta ei löydy valmiiksi luotuja sääntösettejä ja käyttäjän pitää itse luoda sääntösettu päästäkseen pelaamaan.
 
 ## Ohjelman käynnistäminen
 
 Ohjelma käynnistetään komennolla 
 
 ```
-java -jar todoapp.jar
+java -jar Vesiputous.jar
 ```
 
-## Kirjautuminen
+## Alkunäkymä
 
-Sovellus käynnistyy kirjautumisnäkymään:
+Sovellus käynnistyy alkunäkymään:
 
-<img src="https://raw.githubusercontent.com/mluukkai/OtmTodoApp/master/dokumentaatio/kuvat/k-1.png" width="400">
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/alkunakyma.PNG" width="400">
 
-Kirjautuminen onnistuu kirjoittamalla olemassaoleva käyttäjätunnus syötekenttään ja painamalla _login_.
+Alkunäkymän nappuloista _Start game_ aloittaa pelin valitulla sääntösetillä, _Delete chosen ruleset_ poistaa valitun sääntösetin ja _New ruleset_ avaa näkymän uuden sääntösetin luomiselle.
 
-## Uuden käyttäjän luominen
+## Uuden sääntösetin luominen
 
-Kirjautumisnäkymästä on mahdollista siirtyä uuden käyttäjän luomisnäkymään panikkeella _create new user_.
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/lisaasaantoja.PNG" width="400">
 
-Uusi käyttäjä luodaan syöttämällä tiedot syötekenttiin ja painamalla _create_
+Sääntösetinluomisnäkymässä pitää ensin antaa sääntösetille uniikki 1-50 kirjaiminen nimi. Nimen kirjoittamisen jälkeen nappi _Next_ mahdollistaa sääntöjen lisäämisen korteille. 
 
-<img src="https://raw.githubusercontent.com/mluukkai/OtmTodoApp/master/dokumentaatio/kuvat/k-2.png" width="400">
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/lisaasaantoja2.PNG" width="400">
 
-Jos käyttäjän luominen onnistuu, palataan kirjautumisnäkymään.
+Kun kaikille korteille on annettu sääntö nappi _Save ruleset_ tallentaa sääntösetin ja palauttaa käyttäjän alkunäkymään. Nappi _Cancel_ palauttaa käyttäjän, missä vain vaiheessa takaisin alkunäkymään tallentamatta mitään.
 
-## Todojen luominen ja tehdyksi merkkaaminen
+## Pelinäkymä
 
-Onnistuneen kirjautumisen myötä siirrytään käyttäjien tekemättömät työt listaavaan näkymään
+Kun käyttäjä on valinnut sääntösetin nappi _Start game_ avaa pelinäkymän.
 
-<img src="https://raw.githubusercontent.com/mluukkai/OtmTodoApp/master/dokumentaatio/kuvat/k-3.png" width="400">
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/pelinalku.PNG" width="400">
 
-Näkymä mahdollistaa olemassaolevien todojen merkkaamisen tehdyksi painikkeella _done_ sekä uusien todojen luomisen kirjoittamalla syötekenttään tehtävän kuvauksen ja painamalla _create_. 
+Nappi _Draw card_ nostaa virtuaalisesta korttipakasta uuden kortin. Nappi _Show rule_ näyttää valitusta sääntösetistä kortille annetun säännön. 
 
-Klikkaamalla näkymän oikean ylänurkan painiketta _logout_, käyttäjä kirjautuu ulos sovelluksesta ja sovellus palaa takaisin kirjaantumisnäkymään.
+<img src="https://github.com/Imppazz/ot-harjoitustyo/blob/master/dokumentaatio/Kuvat/saanto.PNG" width="400">
+
+Näkymän alareunassa näkyy jatkuvasti jäljellä olevien korttien määrä.
