@@ -15,4 +15,8 @@
 | 04.12. | 3    | Checkstyle, jar, github release yms. |
 | 10.12. | 5    | GUI:n parantelua ja dao-luokkien aloitus |
 | 11.12. | 7    | GUI:n parantelua ja dao-luokkien jatkamista |
-| yht   | 42   | | 
+| 19.12. | 8    | GUI:n parantelua ja dao-luokkien jatkamista |
+| 20.12. | 8    | GUI:n parantelua |
+| 21.12. | 8    | GUI:n parantelua ja dokumentaation tekemistä |
+| 22.12. | 12    | GUI:n parantelua ja dokumentaation tekemistä |
+| yht   | 78   | | 
