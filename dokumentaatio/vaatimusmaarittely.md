@@ -19,4 +19,5 @@ Vain yhdenlaisia käyttäjiä.
 
 Perusversion jälkeen järjestelmää täydennetään ajan salliessa esim. seuraavilla toiminnallisuuksilla
 
+- Mahdollisuus lisätä pelaajia
 - Mahdollisuus lisätä erilaisia korttipakkaa käyttäviä pelejä
