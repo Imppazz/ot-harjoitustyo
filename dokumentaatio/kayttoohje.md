@@ -4,7 +4,7 @@ Lataa tiedosto [Vesiputous.jar](https://github.com/Imppazz/ot-harjoitustyo/relea
 
 ## Konfigurointi
 
-Ohjelma olettaa, että sen käynnistyshakemistossa on on tietokanta VesiputousDatabase.db. Jos tietokantaa ole käynnistyshakemistossa, ohjelma luo uuden ja toimii normaalisti, mutta silloin ohjelmasta ei löydy valmiiksi luotuja sääntösettejä ja käyttäjän pitää itse luoda sääntösettu päästäkseen pelaamaan.
+Ohjelma olettaa, että sen käynnistyshakemistossa on on tietokanta VesiputousDatabase.db. Jos tietokantaa ole käynnistyshakemistossa, ohjelma luo uuden ja toimii normaalisti, mutta silloin ohjelmasta ei löydy valmiiksi luotuja sääntösettejä ja käyttäjän pitää itse luoda sääntösetti päästäkseen pelaamaan.
 
 ## Ohjelman käynnistäminen
 
