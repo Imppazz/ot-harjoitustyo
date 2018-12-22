@@ -2,8 +2,6 @@
 
 Lataa tiedosto [Vesiputous.jar](https://github.com/Imppazz/ot-harjoitustyo/releases/tag/loppupalautus)
 
-## Konfigurointi
-
 Ohjelma olettaa, että sen käynnistyshakemistossa on on tietokanta VesiputousDatabase.db. Jos tietokantaa ei ole käynnistyshakemistossa, ohjelma luo uuden ja toimii normaalisti, mutta silloin ohjelmasta ei löydy valmiiksi luotuja sääntösettejä ja käyttäjän pitää itse luoda sääntösetti päästäkseen pelaamaan.
 
 ## Ohjelman käynnistäminen
