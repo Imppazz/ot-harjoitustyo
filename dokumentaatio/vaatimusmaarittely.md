@@ -13,7 +13,7 @@ Vain yhdenlaisia käyttäjiä.
 - Sovellus antaa yksitellen (yksi kortti/hiiren klikkaus) virtuaalisen korttipakan kaikki kortit satunnaisessa järjestyksessä
 - Jokaiseen korttiin on liitetty jokin tehtävä, jonka saa näkyville, kunkin kortin kohdalla nappia painamalla
 - Sovellus pitää kirjaa jäljellä olevien korttien määrästä
-- Mahdollisuus tehdä eri versioita, joissa kortteihin on liitetty eri säännöt. Versiolle annetaan nimi ja pelaajat voivat valita mitä versiota haluavat pelata
+- Mahdollisuus tehdä eri versioita, joissa kortteihin on liitetty eri säännöt. Versiolle annetaan nimi ja pelaajat voivat valita mitä versiota haluavat pelata. Versioita voi myös poistaa.
 
 ## Jatkokehitysideoita
 
